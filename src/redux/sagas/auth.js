@@ -1,4 +1,4 @@
-import { call, put , takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import API from "../../api/auth";
 import * as ACTIONS from "../actions/auth";
 import { dispatchSnackbarError } from "../../utlis/shared";
@@ -13,8 +13,16 @@ export function* login() {
   }
 }
 
-
+export function* forgetPassword() {
+  try {
+    const response = yield call(API.forgetPassword);
+    yield put(ACTIONS.loginReceive(response.data));
+  } catch (err) {
+    dispatchSnackbarError(err.response.data);
+  }
+}
 
 export function* authSagas() {
   yield takeLatest(TYPES.LOGIN_REQUEST, login);
+  yield takeLatest(TYPES.FORGET_PASSWORD_REQUEST, forgetPassword);
 }

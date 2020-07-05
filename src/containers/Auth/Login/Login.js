@@ -1,10 +1,11 @@
 import React from "react";
 import { injectIntl } from "react-intl";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Validation from "vanila-js-validation";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
 import { InputField } from "../../../components/Controls/Input/Input";
 import { loginRequest } from "../../../redux/actions/auth";
-import Validation from "vanila-js-validation";
-import { connect } from "react-redux";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ class Login extends React.Component {
     });
   };
 
-  renderLoginContent = () => {
+  renderFormContent = () => {
     const {
       intl: { messages },
     } = this.props;
@@ -62,6 +63,11 @@ class Login extends React.Component {
           changeHandler={this.handleChange}
           isRequired={true}
         />
+        <div className="d-flex justify-content-end">
+          <Link to="/forgetPassword" className="text-secondary mb-3">
+            {messages.auth.forgetPassword}
+          </Link>
+        </div>
       </>
     );
   };
@@ -73,13 +79,13 @@ class Login extends React.Component {
     return (
       <AuthWrapper
         header={messages.auth.login}
-        content={this.renderLoginContent()}
+        content={this.renderFormContent()}
         handleSubmit={this.handleLogin}
       />
     );
   }
 }
 
-const LoginComponent =  injectIntl(Login);
+const LoginComponent = injectIntl(Login);
 
-export default connect(null ,{loginRequest})(LoginComponent)
+export default connect(null, { loginRequest })(LoginComponent);

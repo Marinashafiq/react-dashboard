@@ -4,7 +4,7 @@ import "./Loader.scss";
 const Loader = () => {
   return (
     <div className="spinnerContainer d-flex justify-content-center align-items-center">
-      <div className="spinner-border text-primary" role="status">
+      <div className="spinner-border text-dark" role="status">
         <span className="sr-only">Loading...</span>
       </div>
     </div>

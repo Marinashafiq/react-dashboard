@@ -17,10 +17,12 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
       {...rest}
       render={(props) =>
         Auth.isAuth()
-          ? path.split("/")[1] === "login"
+          ? path.split("/")[1] === "login" ||
+            path.split("/")[1] === "forgetPassword"
             ? MainLayoutWrapper(<Redirect to="/" />)
             : MainLayoutWrapper(<Component {...props} />)
-          : path.split("/")[1] === "login"
+          : path.split("/")[1] === "login" ||
+            path.split("/")[1] === "forgetPassword"
           ? NoLayout(<Component {...props} />)
           : NoLayout(<Redirect to={{ pathname: "/login" }} />)
       }

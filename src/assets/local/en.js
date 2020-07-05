@@ -9,7 +9,7 @@ export default {
     auth: {
       logout: "Logout",
       login: "Login",
-      forgetPassword: "Forget Password",
+      forgetPassword: "Forget Password?",
     },
     formControl: {
       input: "Write here",

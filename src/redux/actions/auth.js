@@ -14,3 +14,12 @@ export const loginReceive = (payload) => ({
   type: TYPES.LOGIN_RECEIVE,
   payload,
 });
+
+export const forgetPasswordRequest = (payload) => {
+  History.push("/");
+  return {
+    type: TYPES.FORGET_PASSWORD_REQUEST,
+    payload,
+  };
+};
+
