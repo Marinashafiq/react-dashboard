@@ -10,16 +10,17 @@ export const ButtonComponent = ({
   handleClick,
   type,
   disabled,
+  textColor,
 }) => {
   return (
     <Button
       disabled={disabled}
       type={type}
       variant={variant}
-      className={`medium_font ${
-        variant === "contained" && "text-white"
-      } ${classes}`}
-      color={color ? color : "primary"}
+      className={`medium_font ${variant === "contained" && "text-white"} ${
+        classes + " " + textColor
+      }`}
+      color={color}
       onClick={handleClick}
     >
       {content}

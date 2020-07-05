@@ -18,10 +18,10 @@ function ThemeApp() {
     direction: direction,
     palette: {
       primary: {
-        main: "#2C5FBF"
+        main: "#21243d"
       },
       secondary: {
-        main: "#97BAFE"
+        main: "#f3c623"
       }
     },
     typography: {
