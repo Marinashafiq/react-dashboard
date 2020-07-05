@@ -6,7 +6,7 @@ import * as TYPES from "../types/auth";
 
 export function* login() {
   try {
-    const response = yield call(API.apiExampleRequest);
+    const response = yield call(API.login);
     yield put(ACTIONS.loginReceive(response.data));
   } catch (err) {
     dispatchSnackbarError(err.response.data);

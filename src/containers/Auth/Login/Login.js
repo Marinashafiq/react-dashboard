@@ -1,8 +1,10 @@
 import React from "react";
-import History from "../../../routes/history";
 import { injectIntl } from "react-intl";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
 import { InputField } from "../../../components/Controls/Input/Input";
+import { loginRequest } from "../../../redux/actions/auth";
+import Validation from "vanila-js-validation";
+import { connect } from "react-redux";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -15,11 +17,25 @@ class Login extends React.Component {
   }
 
   handleLogin = () => {
-    localStorage.setItem("token", "token");
-    History.push("/");
+    const {
+      login_form,
+      login_form: { email, password },
+    } = this.state;
+    const { loginRequest } = this.props;
+    !Validation.isRequired(email) &&
+      !Validation.isRequired(password) &&
+      loginRequest(login_form);
   };
 
-  handleChange = () => {};
+  handleChange = (e) => {
+    const { login_form } = this.state;
+    this.setState({
+      login_form: {
+        ...login_form,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
 
   renderLoginContent = () => {
     const {
@@ -64,4 +80,6 @@ class Login extends React.Component {
   }
 }
 
-export default injectIntl(Login);
+const LoginComponent =  injectIntl(Login);
+
+export default connect(null ,{loginRequest})(LoginComponent)

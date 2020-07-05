@@ -14,7 +14,7 @@ export const AuthWrapper = ({ header, content, handleSubmit }) => {
         </div>
         {content}
         <ButtonComponent
-          content="Login"
+          content={header}
           variant="contained"
           classes="mx-auto w-100"
           handleClick={handleSubmit}
