@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PaginationComponent() {
+export default function PaginationComponent({paging}) {
   const classes = useStyles();
   const [page, setPage] = React.useState(1);
   const handleChange = (event, value) => {
@@ -19,10 +19,9 @@ export default function PaginationComponent() {
   };
   return (
     <div className={classes.root}>
-      <Typography>Page: {page}</Typography>
       <Pagination
         color="primary"
-        count={10}
+        count={paging.total_pages}
         showFirstButton
         showLastButton
         onChange={handleChange}

@@ -7,8 +7,8 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
-import { StyledTableCell } from "components/Table/StyledTableCell";
-import DataNotFound from "components/DataNotFound/DataNotFound";
+import { StyledTableCell } from "./StyledTableCell";
+// import DataNotFound from "components/DataNotFound/DataNotFound";
 
 const TableComponent = ({ tableHeaders, actionCols, tableBody , list}) => {
   return (
@@ -33,9 +33,9 @@ const TableComponent = ({ tableHeaders, actionCols, tableBody , list}) => {
           <TableBody>{tableBody}</TableBody>
         </Table>
       </TableContainer>
-      {list && list.length === 0 && (
+      {/* {list && list.length === 0 && (
         <DataNotFound />
-      )}
+      )} */}
     </>
   );
 };
