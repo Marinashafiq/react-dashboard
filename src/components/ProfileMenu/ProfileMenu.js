@@ -92,7 +92,7 @@ function ProfileMenu({ intl: { messages } }) {
           onClick={handleToggle}
         >
           <img className="profileImg" src={ProfilePic} alt="profile" />
-          <h6 className="mx-3 mb-0">Ehab Elshehawi</h6>
+          <h6 className="mx-3 mb-0">Marina Magdy</h6>
           <KeyboardArrowDownIcon />
         </Button>
         <Popper

@@ -18,7 +18,7 @@ function ThemeApp() {
     direction: direction,
     palette: {
       primary: {
-        main: "#21243d"
+        main: "#231f21"
       },
       secondary: {
         main: "#f3c623"
