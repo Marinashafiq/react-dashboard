@@ -9,7 +9,7 @@ import App from "./containers/App";
 
 function ThemeApp() {
   const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
-  const lang = useSelector(state => state.lang);
+  const lang = useSelector((state) => state.lang);
   const [direction, setDirection] = useState(lang === "en" ? "ltr" : "rtl");
   useEffect(() => {
     setDirection(lang === "en" ? "ltr" : "rtl");
@@ -18,16 +18,30 @@ function ThemeApp() {
     direction: direction,
     palette: {
       primary: {
-        main: "#231f21"
+        main: "#231f21",
       },
       secondary: {
-        main: "#f3c623"
-      }
+        main: "#f3c623",
+      },
     },
     typography: {
+      fontFamily: [
+        "Nunito-Regular",
+        "Tajawal-Regular",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        '"Helvetica Neue"',
+        "Arial",
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(","),
       button: {
         textTransform: "initial",
-        borderWidth:"2px"
+        fontFamily: ["Nunito-SemiBold", "Tajawal-Medium"].join(","),
       },
     },
   });
