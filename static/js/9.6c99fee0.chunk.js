@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-dashboard"]=this["webpackJsonpreact-dashboard"]||[]).push([[9],{284:function(e,a,t){"use strict";t.r(a);var n=t(0),r=t.n(n);a.default=function(){return r.a.createElement(r.a.Fragment,null,r.a.createElement("div",{className:"text-center"},r.a.createElement("h1",{className:"my-5 pt-5"},"Sorry we can\u2019t find this page")))}}}]);
+//# sourceMappingURL=9.6c99fee0.chunk.js.map
