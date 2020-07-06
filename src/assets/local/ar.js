@@ -19,6 +19,7 @@ export default {
     },
     buttons: {
       submit: "تسجيل",
+      view : "عرض"
     },
     pages: {
       dashboard: "الرئيسية",
@@ -27,6 +28,13 @@ export default {
     },
     snackbar: {
       success: "تم بنجاح",
+    },
+    branches: {
+      name_en: "اسم الفرع بالعربية",
+      name_ar: "اسم الفرع بالانجليزية",
+      address: "العنوان",
+      country: "البلد",
+      city: "المدينة",
     },
   },
 };

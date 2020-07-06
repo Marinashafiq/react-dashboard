@@ -27,6 +27,7 @@ function ThemeApp() {
     typography: {
       button: {
         textTransform: "initial",
+        borderWidth:"2px"
       },
     },
   });

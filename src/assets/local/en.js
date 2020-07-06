@@ -19,6 +19,7 @@ export default {
     },
     buttons: {
       submit: "Submit",
+      view : "View"
     },
     pages: {
       dashboard: "Dasboard",
@@ -27,6 +28,13 @@ export default {
     },
     snackbar: {
       success: "Done successfully",
+    },
+    branches: {
+      name_en: "Branch name EN",
+      name_ar: "Branch name AR",
+      address: "Address",
+      country: "Country",
+      city: "City",
     },
   },
 };
