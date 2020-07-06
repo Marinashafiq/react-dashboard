@@ -1,0 +1,13 @@
+@each $family in $arabic_fonts {
+  @font-face {
+    font-family: #{$family};
+    src: url("../assets/fonts/arabic/#{$family}.ttf");
+  }
+}
+
+@each $family in $english_fonts {
+  @font-face {
+    font-family: #{$family};
+    src: url("../assets/fonts/english/#{$family}.ttf");
+  }
+}
