@@ -1,24 +1,34 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { Router } from "react-router-dom";
+import { connect } from "react-redux";
+import { IntlProvider } from "react-intl";
+import history from "../routes/history";
+import Routes from "../routes";
+import messages from "../assets/local/messages";
+import Loader from "../components/Loader/Loader";
+import { MaterialSnackbar } from "../components/Snackbar/Snackbar";
+import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends React.Component {
+  render() {
+    const { lang, loading } = this.props;
+    return (
+      <IntlProvider locale={lang} messages={messages[lang]}>
+        <div
+          className={lang === "ar" ? "rtl" : "ltr"}
+          dir={lang === "ar" ? "rtl" : "ltr"}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <MaterialSnackbar />
+          <Router history={history}>{loading ? <Loader /> : Routes}</Router>
+        </div>
+      </IntlProvider>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = ({ lang, loading }) => ({
+  lang,
+  loading,
+});
+
+export default connect(mapStateToProps, null)(App);
