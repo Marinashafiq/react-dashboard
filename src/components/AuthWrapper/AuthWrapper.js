@@ -6,7 +6,7 @@ import "./AuthWrapper.scss";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    width: '30em',
     padding: "2em",
     margin: "1em",
   },

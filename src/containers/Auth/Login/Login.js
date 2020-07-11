@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Validation from "vanila-js-validation";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
-import { InputField } from "../../../components/Controls/Input/Input";
+import InputField  from "../../../components/Controls/Input/Input";
 import { loginRequest } from "../../../redux/actions/auth";
 class Login extends React.Component {
   constructor(props) {
@@ -54,6 +54,7 @@ class Login extends React.Component {
           value={email}
           changeHandler={this.handleChange}
           isRequired={true}
+          type="email"
         />
         <InputField
           name="password"
@@ -62,6 +63,7 @@ class Login extends React.Component {
           value={password}
           changeHandler={this.handleChange}
           isRequired={true}
+          type="password"
         />
         <div className="d-flex justify-content-end">
           <Link to="/forgetPassword" className="text-secondary mb-3">

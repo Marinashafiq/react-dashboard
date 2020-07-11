@@ -10,12 +10,20 @@ export default {
       logout: "الخروج",
       login: "تسجيل الدخول",
       forgetPassword: "نسيت كلمةالمرور؟",
+      resetPassword : "استعادة كلمة المرور",
     },
     formControl: {
       input: "اكتب هنا",
       select: "اختار",
       email: "البريد الالكترونى",
       password: "كلمة المرور",
+      confirmPassword : "تاكيد كلمة المرور"
+    },
+    errors : {
+      required : "هذا الحقل مطلوب",
+      invalidEmail : "الايميل غير صحيح",
+      invalidPassword : "كلمة السر غير صحيحة",
+      invalidMatchPassword : "كلمة السر غير متطابقة"
     },
     buttons: {
       submit: "تسجيل",

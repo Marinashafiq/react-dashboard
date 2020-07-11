@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
-
-export const InputField = ({
+import { injectIntl } from "react-intl";
+ const InputField = ({
   name,
   id,
   className,
@@ -14,6 +14,7 @@ export const InputField = ({
   isRequired,
   max,
   disabled,
+  type,
 }) => {
   return (
     <TextField
@@ -21,17 +22,19 @@ export const InputField = ({
       className={`my-3 ${className ? className : ""}`}
       name={name}
       id={id}
-      type="text"
+      type={type ? type : "text"}
       label={isRequired ? label + "*" : label}
       inputProps={{ maxLength: max ? max : isMultiline ? 500 : 50 }}
       variant="outlined"
       fullWidth
       value={value}
       error={error}
-      helperText={error && helperText}
+      helperText={helperText}
       onChange={changeHandler}
       multiline={isMultiline}
       rows={isMultiline ? 3 : 1}
     />
   );
 };
+
+export default injectIntl(InputField);

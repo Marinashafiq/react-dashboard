@@ -8,7 +8,13 @@ const forgetPassword = async () => {
   return await axiosInstance.post(`ENDPOINT`);
 };
 
+
+const resetPassword = async () => {
+  return await axiosInstance.post(`ENDPOINT`);
+};
+
 export default {
   login,
   forgetPassword,
+  resetPassword
 };
