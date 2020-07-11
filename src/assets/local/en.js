@@ -15,6 +15,8 @@ export default {
     formControl: {
       input: "Write here",
       select: "Select",
+      autoCompelete : "Autocompelete",
+      autoCompeleteMulti : "Autocompelete multiple",
       email: "Email",
       password: "Password",
       confirmPassword : "Confirm password"

@@ -15,6 +15,8 @@ export default {
     formControl: {
       input: "اكتب هنا",
       select: "اختار",
+      autoCompelete : "الإكمال التلقائي",
+      autoCompeleteMulti : "الإكمال التلقائي متعدد",
       email: "البريد الالكترونى",
       password: "كلمة المرور",
       confirmPassword : "تاكيد كلمة المرور"

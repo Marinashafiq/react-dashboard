@@ -22,9 +22,6 @@ class ResetPassword extends React.Component {
   }
 
   handleChange = (e) => {
-    const {
-      intl: { messages },
-    } = this.props;
     this.setState({
       reset_password_form: {
         ...this.state.reset_password_form,
