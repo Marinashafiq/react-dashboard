@@ -3,7 +3,7 @@ import { injectIntl } from "react-intl";
 import { connect } from "react-redux";
 import Validation from "vanila-js-validation";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
-import { InputField } from "../../../components/Controls/Input/Input";
+import InputField from "../../../components/Controls/Input/Input";
 import { forgetPasswordRequest } from "../../../redux/actions/auth";
 
 class ForgetPassword extends React.Component {

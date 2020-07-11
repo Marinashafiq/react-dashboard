@@ -1,6 +1,6 @@
 import React from "react";
 import { SelectComponent } from "../../../components/Controls/Select/Select";
-import { InputField } from "../../../components/Controls/Input/Input";
+import  InputField from "../../../components/Controls/Input/Input";
 import { CheckboxComponent } from "../../../components/Controls/Checkbox/Checkbox";
 import { DateField } from "../../../components/Controls/DateField/DateField";
 import { injectIntl } from "react-intl";

@@ -10,12 +10,20 @@ export default {
       logout: "Logout",
       login: "Login",
       forgetPassword: "Forget Password?",
+      resetPassword : "Reset Password",
     },
     formControl: {
       input: "Write here",
       select: "Select",
       email: "Email",
       password: "Password",
+      confirmPassword : "Confirm password"
+    },
+    errors : {
+      required : "This field is required",
+      invalidEmail : "Invalid email",
+      invalidPassword : "Invalid password",
+      invalidMatchPassword : "Passwords don't match"
     },
     buttons: {
       submit: "Submit",
