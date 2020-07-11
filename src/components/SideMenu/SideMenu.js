@@ -17,14 +17,8 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import HomeIcon from "@material-ui/icons/Home";
 import TableChartIcon from "@material-ui/icons/TableChart";
 import { useStyles } from "./SideMenuStyles";
-
-const SideMenu = ({
-  open,
-  intl: { messages },
-  theme,
-  handleCloseDrawer,
-}) => {
-  const classes = useStyles();
+import history from "../../routes/history";
+const SideMenu = ({ open, intl: { messages }, theme, handleCloseDrawer }) => {
   const sideMenuList = [
     {
       icon: <HomeIcon />,
@@ -42,24 +36,21 @@ const SideMenu = ({
       link: "/tables",
     },
   ];
-
-  const [selected, setSelected] = useState(0);
-
+  const classes = useStyles();
+  const [selected, setSelected] = useState(history.location.pathname);
   const handleDrawerClose = () => {
     handleCloseDrawer(false);
   };
-
-  const handleListItemClick = (e, index) => {
-    setSelected(index);
+  const handleListItemClick = (e, link) => {
+    setSelected(link);
   };
-
   const renderList = () => {
     return sideMenuList.map((item, index) => (
       <Link to={item.link} key={index}>
         <ListItem
           button
-          selected={selected === index}
-          onClick={(event) => handleListItemClick(event, index)}
+          selected={selected === item.link}
+          onClick={(event) => handleListItemClick(event, item.link)}
         >
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.text} />

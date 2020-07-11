@@ -4,9 +4,9 @@ import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, CssBaseline, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import Navbar from "../../../components/Navbar/Navbar";
-import Loader from "../../../components/Loader/Loader";
-import SideMenu from "../../../components/SideMenu/SideMenu";
+import Navbar from "../Navbar/Navbar";
+import Loader from "../Loader/Loader";
+import SideMenu from "../SideMenu/SideMenu";
 import { useStyles } from "./MainLayoutStyles";
 
 function MainLayout(props) {

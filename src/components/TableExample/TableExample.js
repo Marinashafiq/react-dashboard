@@ -11,8 +11,8 @@ function TableExample({ intl: { messages }, branches }) {
 
   const renderBranchesRow = () => {
     if (branches) {
-      return branches.map((branch) => (
-        <TableRow key={branch.id}>
+      return branches.map((branch , index) => (
+        <TableRow key={index}>
           <React.Fragment>
             <StyledTableCell content={branch.name_en} />
             <StyledTableCell
