@@ -29,7 +29,7 @@ import { injectIntl } from "react-intl";
       fullWidth
       value={value}
       error={error}
-      helperText={helperText}
+      helperText={error && helperText}
       onChange={changeHandler}
       multiline={isMultiline}
       rows={isMultiline ? 3 : 1}

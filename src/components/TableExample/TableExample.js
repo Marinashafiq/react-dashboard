@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { TableRow } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { injectIntl } from "react-intl";
 import { ButtonComponent } from "../Controls/Button/Button";
 import { StyledTableCell } from "../Table/StyledTableCell";
@@ -12,8 +11,8 @@ function TableExample({ intl: { messages }, branches }) {
 
   const renderBranchesRow = () => {
     if (branches) {
-      return branches.map((branch) => (
-        <TableRow key={branch.id}>
+      return branches.map((branch , index) => (
+        <TableRow key={index}>
           <React.Fragment>
             <StyledTableCell content={branch.name_en} />
             <StyledTableCell
