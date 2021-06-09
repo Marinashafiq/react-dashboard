@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, CssBaseline, IconButton } from "@material-ui/core";
@@ -8,18 +8,42 @@ import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";
 import SideMenu from "../SideMenu/SideMenu";
 import { useStyles } from "./MainLayoutStyles";
+import ResponsiveDrawer from "../DrawerSideMenu/DrawerSideMenu";
+import "./layout.scss";
 
 function MainLayout(props) {
   const classes = useStyles();
   const theme = useTheme();
+  const lang = useSelector((state) => state.lang);
   const [open, setOpen] = useState(false);
+  const [state, setState] = React.useState({
+    left: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    console.log("toooooglelllelel");
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
   };
 
   return (
-    <div className={classes.root}>
+    <div
+      className={
+        lang === "en" ? "main_content_margin_ltr" : "main_content_margin_rtl"
+      }
+    >
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -33,21 +57,35 @@ function MainLayout(props) {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, {
+            className={`desktop_side_menu ${clsx(classes.menuButton, {
               [classes.hide]: open,
-            })}
+            })}`}
+          >
+            <MenuIcon />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer("left", true)}
+            edge="start"
+            className={"mobile_side_menu"}
           >
             <MenuIcon />
           </IconButton>
           <Navbar />
         </Toolbar>
       </AppBar>
-      <SideMenu
-        open={open}
-        theme={theme}
-        handleCloseDrawer={() => setOpen(false)}
-        classes={classes}
-      />
+      <div className="desktop_side_menu">
+        <SideMenu
+          open={open}
+          theme={theme}
+          handleCloseDrawer={() => setOpen(false)}
+          classes={classes}
+        />
+      </div>
+      <div className="mobile_side_menu">
+        <ResponsiveDrawer toggleDrawer={toggleDrawer} state={state} />
+      </div>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {props.loading ? <Loader /> : props.children}

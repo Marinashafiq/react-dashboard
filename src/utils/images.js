@@ -1,5 +1,3 @@
-import { avatarPlaceholder } from "../assets/images/profile-pic.jpg";
+import avatarPlaceholder from "./../assets/images/profile-pic.jpg";
 
-export default {
-  avatarPlaceholder,
-};
+export { avatarPlaceholder };
