@@ -3,7 +3,7 @@ import { Router } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IntlProvider } from "react-intl";
 import Routes from "../routes";
-import messages from "../assets/Local/messages";
+import messages from "../assets/local/messages";
 import history from "../routes/history";
 import Loader from "../components/Loader/Loader";
 import { MaterialSnackbar } from "../components/Snackbar/Snackbar";

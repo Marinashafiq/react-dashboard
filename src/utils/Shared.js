@@ -1,6 +1,6 @@
 import store from "../store";
 import { showSnackbarAction } from "../store/snackbar/actions";
-import messages from '../assets/Local/messages';
+import messages from '../assets/local/messages';
 
 export function dispatchSnackbarError(data) {
   if (data) {
