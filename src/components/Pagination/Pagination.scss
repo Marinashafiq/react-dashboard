@@ -1,0 +1,23 @@
+@import "../../scss/variables";
+
+.page-item.active {
+  .page-link {
+    border-color: $secondary;
+    background-color: $primary;
+    font-family: $medium-font;
+    color: white !important;
+    font-weight: 500;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.page-item {
+  .page-link {
+    color: $primary !important;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
