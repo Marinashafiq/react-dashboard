@@ -3,7 +3,7 @@ import { injectIntl } from "react-intl";
 import Validation from "vanila-js-validation";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
 import InputField from "../../../components/Controls/Input/Input";
-import { forgetPasswordRequest } from "../../../store/auth/actions";
+import { forgetPasswordRequest } from "../../../store/Auth/actions";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
