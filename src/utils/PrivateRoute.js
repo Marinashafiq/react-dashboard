@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Auth from "../utils/Auth";
+import Auth from "./Auth";
 import MainLayout from '../containers/Dashboard/MainLayout/MainLayout'
 
 export const MainLayoutWrapper = (component) => {

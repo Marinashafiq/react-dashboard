@@ -5,7 +5,6 @@ import LanguageBtn from "../LanguageBtn/LanguageBtn";
 import history from "../../routes/history";
 
 function Navbar({ intl: { messages } }) {
-  console.log(history.location.pathname);
   const pathName =
     history.location.pathname === "/"
       ? "dashboard"

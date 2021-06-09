@@ -1,4 +1,4 @@
-import * as types from '../types';
+import * as types from './types';
 
 const snackbar = (state = {}, action) => {
     switch (action.type) {

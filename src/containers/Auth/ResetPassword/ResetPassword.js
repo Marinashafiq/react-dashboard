@@ -1,53 +1,41 @@
 import React from "react";
 import { injectIntl } from "react-intl";
-import { connect } from "react-redux";
 import Validation from "vanila-js-validation";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
 import InputField from "../../../components/Controls/Input/Input";
-import { resetPasswordRequest } from "../../../redux/actions/auth";
+import { resetPasswordRequest } from "../../../store/auth/actions";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
-class ResetPassword extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reset_password_form: {
-        password: "",
-        confirm_password: "",
-      },
-      errors: {
-        required_password: false,
-        required_confirm_password: false,
-      },
-    };
-  }
+const ResetPassword = ({ intl: { messages } }) => {
+  const [resetPassword, setResetPassword] = useState({
+    password: "",
+    confirm_password: "",
+  });
+  const [resetPasswordErr, setResetPasswordErr] = useState({
+    required_password: false,
+    required_confirm_password: false,
+  });
+  const dispatch = useDispatch();
 
-  handleChange = (e) => {
-    this.setState({
-      reset_password_form: {
-        ...this.state.reset_password_form,
-        [e.target.name]: e.target.value,
-      },
-      errors: {
-        ...this.state.errors,
-        [`required_${e.target.name}`]: Validation.isRequired(e.target.value),
-      },
+  const handleChange = (e) => {
+    setResetPassword({
+      ...resetPassword,
+      [e.target.name]: e.target.value,
+    });
+    setResetPasswordErr({
+      ...resetPasswordErr,
+      [`required_${e.target.name}`]: Validation.isRequired(e.target.value),
     });
   };
 
-  handleLogin = () => {
-    const { reset_password_form } = this.state;
-    const { resetPasswordRequest } = this.props;
-    resetPasswordRequest(reset_password_form);
+  const handleLogin = () => {
+    dispatch(resetPasswordRequest(resetPassword));
   };
 
-  renderFormContent = () => {
-    const {
-      intl: { messages },
-    } = this.props;
-    const {
-      reset_password_form: { password, confirm_password },
-      errors: { required_password, required_confirm_password },
-    } = this.state;
+  const renderFormContent = () => {
+    const { password, confirm_password } = resetPassword;
+    const { required_password, required_confirm_password } = resetPasswordErr;
     return (
       <>
         <InputField
@@ -55,7 +43,7 @@ class ResetPassword extends React.Component {
           id="password"
           label={messages.formControl.password}
           value={password}
-          changeHandler={this.handleChange}
+          changeHandler={handleChange}
           isRequired={true}
           type="password"
           error={required_password}
@@ -66,7 +54,7 @@ class ResetPassword extends React.Component {
           id="confirm_password"
           label={messages.formControl.confirmPassword}
           value={confirm_password}
-          changeHandler={this.handleChange}
+          changeHandler={handleChange}
           isRequired={true}
           type="password"
           error={required_confirm_password}
@@ -76,20 +64,13 @@ class ResetPassword extends React.Component {
     );
   };
 
-  render() {
-    const {
-      intl: { messages },
-    } = this.props;
-    return (
-      <AuthWrapper
-        header={messages.auth.resetPassword}
-        content={this.renderFormContent()}
-        handleSubmit={this.handleLogin}
-      />
-    );
-  }
-}
+  return (
+    <AuthWrapper
+      header={messages.auth.resetPassword}
+      content={renderFormContent()}
+      handleSubmit={handleLogin}
+    />
+  );
+};
 
-const ResetPasswordComponent = injectIntl(ResetPassword);
-
-export default connect(null, { resetPasswordRequest })(ResetPasswordComponent);
+export default injectIntl(ResetPassword);

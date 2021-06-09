@@ -1,50 +1,36 @@
 import React from "react";
 import { injectIntl } from "react-intl";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Validation from "vanila-js-validation";
 import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
-import InputField  from "../../../components/Controls/Input/Input";
-import { loginRequest } from "../../../redux/actions/auth";
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      login_form: {
-        email: "",
-        password: "",
-      },
-    };
-  }
+import InputField from "../../../components/Controls/Input/Input";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { loginRequest } from "../../../store/auth/actions";
 
-  handleLogin = () => {
-    const {
-      login_form,
-      login_form: { email, password },
-    } = this.state;
-    const { loginRequest } = this.props;
+const Login = ({ intl: { messages } }) => {
+  const [loginForm, setLoginForm] = useState({
+    email: "",
+    password: "",
+  });
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    const { email, password } = loginForm;
     !Validation.isRequired(email) &&
       !Validation.isRequired(password) &&
-      loginRequest(login_form);
+      dispatch(loginRequest(loginForm));
   };
 
-  handleChange = (e) => {
-    const { login_form } = this.state;
-    this.setState({
-      login_form: {
-        ...login_form,
-        [e.target.name]: e.target.value,
-      },
+  const handleChange = (e) => {
+    setLoginForm({
+      ...loginForm,
+      [e.target.name]: e.target.value,
     });
   };
 
-  renderFormContent = () => {
-    const {
-      intl: { messages },
-    } = this.props;
-    const {
-      login_form: { email, password },
-    } = this.state;
+  const renderFormContent = () => {
+    const { email, password } = loginForm;
     return (
       <>
         <InputField
@@ -52,7 +38,7 @@ class Login extends React.Component {
           id="email"
           label={messages.formControl.email}
           value={email}
-          changeHandler={this.handleChange}
+          changeHandler={handleChange}
           isRequired={true}
           type="email"
         />
@@ -61,7 +47,7 @@ class Login extends React.Component {
           id="password"
           label={messages.formControl.password}
           value={password}
-          changeHandler={this.handleChange}
+          changeHandler={handleChange}
           isRequired={true}
           type="password"
         />
@@ -74,20 +60,13 @@ class Login extends React.Component {
     );
   };
 
-  render() {
-    const {
-      intl: { messages },
-    } = this.props;
-    return (
-      <AuthWrapper
-        header={messages.auth.login}
-        content={this.renderFormContent()}
-        handleSubmit={this.handleLogin}
-      />
-    );
-  }
-}
+  return (
+    <AuthWrapper
+      header={messages.auth.login}
+      content={renderFormContent()}
+      handleSubmit={handleLogin}
+    />
+  );
+};
 
-const LoginComponent = injectIntl(Login);
-
-export default connect(null, { loginRequest })(LoginComponent);
+export default injectIntl(Login);

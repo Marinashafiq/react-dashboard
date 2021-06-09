@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import lang from "./Lang";
-import loader from "./Loader";
-import snackbar from "./Snackbar";
-import auth from "./auth";
+import lang from "../lang/reducer";
+import loader from "../loader/reducer";
+import snackbar from "../snackbar/reducer";
+import auth from "../auth/reducer";
 
 export default combineReducers({
   lang,

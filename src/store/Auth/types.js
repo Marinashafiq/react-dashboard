@@ -1,3 +1,4 @@
-// Replace with your request types
-export const GET_DATA_REQUEST = 'GET_DATA_REQUEST';
-export const GET_DATA_RECEIVE = 'GET_DATA_RECEIVE';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_RECEIVE = 'LOGIN_RECEIVE';
+export const FORGET_PASSWORD_REQUEST = 'FORGET_PASSWORD_REQUEST';
+export const RESET_PASSWORD_REQUEST = 'RESET_PASSWORD_REQUEST';

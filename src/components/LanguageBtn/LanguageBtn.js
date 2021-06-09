@@ -1,7 +1,7 @@
 import React from "react";
 import { injectIntl } from "react-intl";
 import { useSelector, useDispatch } from "react-redux";
-import { setLanguage } from "../../redux/actions/lang";
+import { setLanguage } from "../../store/lang/actions";
 import { ButtonComponent } from "../Controls/Button/Button";
 
 function LanguageBtn({ intl: { messages } , color}) {

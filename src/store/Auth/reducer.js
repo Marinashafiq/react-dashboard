@@ -1,13 +1,13 @@
-import * as types from "../types/auth";
+import * as TYPES from "./types";
 
 const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case types.GET_DATA_RECEIVE:
+    case TYPES.LOGIN_RECEIVE:
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
     default:
       return state;

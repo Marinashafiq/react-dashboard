@@ -1,4 +1,4 @@
-export default {
+const arabic = {
   ar: {
     hello: "مرحبا",
     lang: "English",
@@ -48,3 +48,5 @@ export default {
     },
   },
 };
+
+export default arabic;
