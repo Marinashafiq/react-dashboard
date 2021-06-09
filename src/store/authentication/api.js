@@ -1,20 +1,15 @@
 import { axiosInstance } from "../../network";
 // Replace endpoint and change api name
-const login = async () => {
+export const login = async () => {
   return await axiosInstance.post(`ENDPOINT`);
 };
 
-const forgetPassword = async () => {
+export const forgetPassword = async () => {
   return await axiosInstance.post(`ENDPOINT`);
 };
 
 
-const resetPassword = async () => {
+export const resetPassword = async () => {
   return await axiosInstance.post(`ENDPOINT`);
 };
 
-export default {
-  login,
-  forgetPassword,
-  resetPassword
-};

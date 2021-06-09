@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, CssBaseline, IconButton } from "@material-ui/core";

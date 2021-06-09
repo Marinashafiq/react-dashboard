@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import API from "./api";
+import * as API from "./api";
 import * as ACTIONS from "./actions";
 import { dispatchSnackbarError } from "../../utils/Shared";
 import * as TYPES from "./types";

@@ -3,7 +3,6 @@ import { injectIntl } from "react-intl";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import LanguageBtn from "../LanguageBtn/LanguageBtn";
 import history from "../../routes/history";
-import ResponsiveDrawer from './../DrawerSideMenu/DrawerSideMenu';
 
 function Navbar({ intl: { messages } }) {
   const pathName =

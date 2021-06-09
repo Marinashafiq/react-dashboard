@@ -6,7 +6,7 @@ import { AuthWrapper } from "../../../components/AuthWrapper/AuthWrapper";
 import InputField from "../../../components/Controls/Input/Input";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { loginRequest } from "../../../store/Auth/actions";
+import { loginRequest } from "../../../store/authentication/actions";
 
 const Login = ({ intl: { messages } }) => {
   const [loginForm, setLoginForm] = useState({

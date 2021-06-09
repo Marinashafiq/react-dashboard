@@ -1,8 +1,6 @@
 import * as TYPES from "./types";
 
-const INITIAL_STATE = {};
-
-export default (state = INITIAL_STATE, action) => {
+export default function authReducer (state = {}, action) {
   switch (action.type) {
     case TYPES.LOGIN_RECEIVE:
       return {
