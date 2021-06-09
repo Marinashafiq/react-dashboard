@@ -1,5 +1,5 @@
 import PaginationButtons from "../../../components/Pagination/Pagination";
-import { tableContent } from "../../../utils/constants";
+import { tableContent } from "../../../utils/Constants";
 import TableExampleComponent from "../../../components/TableExample/TableExample";
 import { useState } from "react";
 const Tables = () => {

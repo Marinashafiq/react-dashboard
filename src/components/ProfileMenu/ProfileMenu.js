@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { injectIntl } from "react-intl";
 import { useSelector } from "react-redux";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import Auth from "../../utils/auth";
+import Auth from "../../utils/Auth";
 import { avatarPlaceholder } from "./../../utils/images";
 import "./ProfileMenu.scss";
 

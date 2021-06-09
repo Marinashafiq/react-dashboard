@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Router, Switch } from "react-router-dom";
 import history from "./history";
-import * as LazyComponent from "../utils/lazyLoaded";
+import * as LazyComponent from "../utils/LazyLoaded";
 import Loader from "../components/Loader/Loader";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 

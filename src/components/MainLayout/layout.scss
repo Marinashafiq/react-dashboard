@@ -2,11 +2,8 @@
   display: none !important;
 }
 
-.main_content_margin_ltr {
-  margin-left: 70px;
-}
-.main_content_margin_rtl {
-  margin-right: 70px;
+.main_contant {
+  display: flex;
 }
 
 @media only screen and (max-width: 768px) {
@@ -18,10 +15,7 @@
     display: none !important;
   }
 
-  .main_content_margin_ltr {
-    margin-left: 0;
-  }
-  .main_content_margin_rtl {
-    margin-right: 0;
+  .main_contant {
+    display: block;
   }
 }

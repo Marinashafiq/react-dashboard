@@ -9,20 +9,35 @@ import Loader from "../Loader/Loader";
 import SideMenu from "../SideMenu/SideMenu";
 import { useStyles } from "./MainLayoutStyles";
 import ResponsiveDrawer from "../DrawerSideMenu/DrawerSideMenu";
+import { useEffect } from "react";
 import "./layout.scss";
 
 function MainLayout(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const lang = useSelector((state) => state.lang);
   const [open, setOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
   const [state, setState] = React.useState({
     left: false,
     right: false,
   });
 
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    console.log(width);
+    width <= 768 && setOpen(false);
+    width > 768 &&
+      setState({
+        left: false,
+        right: false,
+      });
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, [width]);
+
   const toggleDrawer = (anchor, open) => (event) => {
-    console.log("toooooglelllelel");
     if (
       event &&
       event.type === "keydown" &&
@@ -39,11 +54,7 @@ function MainLayout(props) {
   };
 
   return (
-    <div
-      className={
-        lang === "en" ? "main_content_margin_ltr" : "main_content_margin_rtl"
-      }
-    >
+    <div className="main_contant">
       <CssBaseline />
       <AppBar
         position="fixed"

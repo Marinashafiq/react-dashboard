@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import API from "../auth/api";
 import * as ACTIONS from "../auth/actions";
-import { dispatchSnackbarError } from "../../utils/shared";
+import { dispatchSnackbarError } from "../../utils/Shared";
 import * as TYPES from "../auth/types";
 import history from "../../routes/history";
 
