@@ -1,4 +1,4 @@
-import * as TYPES from "../types";
+import * as TYPES from "./types";
 
 export const setLanguage = (payload) => {
   localStorage.setItem("lang", payload);

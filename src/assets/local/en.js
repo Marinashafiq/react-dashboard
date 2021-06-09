@@ -1,4 +1,4 @@
-export default {
+const en = {
   en: {
     hello: "Hello",
     lang: "عربى",
@@ -48,3 +48,4 @@ export default {
     },
   },
 };
+export default en;

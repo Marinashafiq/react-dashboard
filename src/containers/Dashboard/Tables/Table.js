@@ -1,19 +1,25 @@
-import React from "react";
-import { injectIntl } from "react-intl";
 import PaginationButtons from "../../../components/Pagination/Pagination";
-import { tableContent } from "../../../utlis/constants";
+import { tableContent } from "../../../utils/constants";
 import TableExampleComponent from "../../../components/TableExample/TableExample";
-class Tables extends React.Component {
-  render() {
-    return (
-      <>
-        <TableExampleComponent branches={tableContent.data} />
-        <div className="d-flex justify-content-center">
-          <PaginationButtons paging={tableContent.paging} />
-        </div>
-      </>
-    );
-  }
-}
+import { useState } from "react";
+const Tables = () => {
+  const [page, setPage] = useState(1);
 
-export default injectIntl(Tables);
+  const handlePagination = (value) => {
+    setPage(value);
+  };
+  return (
+    <>
+      <TableExampleComponent branches={tableContent.data} />
+      <div className="d-flex justify-content-center">
+        <PaginationButtons
+          paging={tableContent.paging}
+          handlePagination={handlePagination}
+          page={page}
+        />
+      </div>
+    </>
+  );
+};
+
+export default Tables;

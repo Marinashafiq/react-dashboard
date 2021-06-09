@@ -5,7 +5,7 @@ import { CheckboxComponent } from "../../../components/Controls/Checkbox/Checkbo
 import { DateField } from "../../../components/Controls/DateField/DateField";
 import { injectIntl } from "react-intl";
 import AutoComplete from "../../../components/Controls/AutoComplete/AutoComplete";
-import { moviesArr } from "../../../utlis/constants";
+import { moviesArr } from "../../../utils/constants";
 
 class Forms extends React.Component {
   constructor(props) {

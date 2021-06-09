@@ -13,8 +13,8 @@ import { Link } from "react-router-dom";
 import { injectIntl } from "react-intl";
 import { useSelector } from "react-redux";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import Auth from "../../utlis/auth";
-import ProfilePic from "./../../assets/images/profile-pic.jpg";
+import Auth from "../../utils/auth";
+import { avatarPlaceholder } from "./../../utils/images";
 import "./ProfileMenu.scss";
 
 const useStyles = makeStyles((theme) => ({
@@ -91,7 +91,7 @@ function ProfileMenu({ intl: { messages } }) {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          <img className="profileImg" src={ProfilePic} alt="profile" />
+          <img className="profile-img" src={avatarPlaceholder} alt="profile" />
           <h6 className="mx-3 mb-0">Marina Magdy</h6>
           <KeyboardArrowDownIcon />
         </Button>
